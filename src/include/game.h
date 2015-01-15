@@ -1,11 +1,15 @@
-/** The game file
- *  @Author Martin Torp
+/** 
+ *  @file
+ *  The game file
+ *  \author Martin Torp
  *
  *
  */
-
+ 
+ 
 /**
- * The game represent the facade which the gui will interact with
+ * \class Game
+ * The game class represent the facade which the gui will interact with
  */
 class Game {
 
