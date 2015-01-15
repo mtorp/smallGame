@@ -12,7 +12,8 @@
  * The game class represent the facade which the gui will interact with
  */
 class Game {
-	/** @return returns null if p is empty. 
+	/** Returns the brick at the specified position
+	 *  @return returns null if p is empty. 
 	 *  @precondition p is a valid position
 	 *  @param p The position of the requested Brick
 	 */
@@ -20,6 +21,6 @@ class Game {
 
 	/** 
 	 *
-	 *
+	 */
 	bool insertBrickAt(Row r);
 }
