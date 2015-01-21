@@ -14,8 +14,7 @@ class Player {
 	 *
 	 */
 	Player (const Color & c);
-	virtual ~Player();
-	virtual Color getColor() = 0; 
+	Color getColor();
 
 };
 

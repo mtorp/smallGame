@@ -20,6 +20,10 @@
 #include "position.h"
 
 
+constexpr int number_of_rows = 6;
+constexpr int number_of_columns = 7;
+
+
 class Game {
 	virtual ~Game();
 

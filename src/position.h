@@ -11,10 +11,8 @@
 class Position {
 public:
 	Position(int row, int column);
-	Position();
-	virtual ~Position();
-	virtual int get_row() = 0;
-	virtual int get_height = 0;
+	int get_row();
+	int get_height();
 private:
 	int m_row;
 	int m_column;

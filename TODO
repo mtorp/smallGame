@@ -1,0 +1,12 @@
+The following set of features:
+- Add brick to the board
+- End round (resulting in changed player)
+- Ability to determine winner
+
+
+
+Test List:
+[] Determine color of brick: 
+[] Add brick to board
+[] Determine color of player in turn
+[] Determine winner of preset game

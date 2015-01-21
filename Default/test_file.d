@@ -17,7 +17,11 @@ test_file.d: ../test_file.cpp \
  /home/torp/dev/lib/gtest-1.7.0/include/gtest/gtest-test-part.h \
  /home/torp/dev/lib/gtest-1.7.0/include/gtest/gtest-typed-test.h \
  /home/torp/dev/lib/gtest-1.7.0/include/gtest/gtest_pred_impl.h \
- ../src/small_prog.h
+ /home/torp/dev/smallGame/include/game.h \
+ /home/torp/dev/smallGame/src/brick.h \
+ /home/torp/dev/smallGame/src/color.h \
+ /home/torp/dev/smallGame/src/player.h \
+ /home/torp/dev/smallGame/src/position.h
 
 /home/torp/dev/lib/gtest-1.7.0/include/gtest/gtest.h:
 
@@ -55,4 +59,12 @@ test_file.d: ../test_file.cpp \
 
 /home/torp/dev/lib/gtest-1.7.0/include/gtest/gtest_pred_impl.h:
 
-../src/small_prog.h:
+/home/torp/dev/smallGame/include/game.h:
+
+/home/torp/dev/smallGame/src/brick.h:
+
+/home/torp/dev/smallGame/src/color.h:
+
+/home/torp/dev/smallGame/src/player.h:
+
+/home/torp/dev/smallGame/src/position.h:

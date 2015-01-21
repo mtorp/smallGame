@@ -2,14 +2,12 @@
 #define SMALL_BRICK 
 
 #include "color.h"
-/* Class that represents a brick
- *
- */
+
 class Brick {
 	public:
 		Brick (const Color&);
-		virtual ~Brick() {}
-		virtual Color getColor() = 0;
+		~Brick() {}
+		Color get_color();
 	private:
 		Color m_color;
 };
