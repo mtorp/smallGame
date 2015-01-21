@@ -7,6 +7,7 @@
 /** Class that represents the interface of a player
  * 
  */
+namespace Connect_four {
 
 class Player {
 	public:
@@ -17,5 +18,5 @@ class Player {
 	Color getColor();
 
 };
-
+}
 #endif

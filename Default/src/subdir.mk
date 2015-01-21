@@ -5,15 +5,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/brick.cpp \
-../src/small_prog.cpp 
+../src/game_impl.cpp \
+../src/position.cpp 
 
 OBJS += \
 ./src/brick.o \
-./src/small_prog.o 
+./src/game_impl.o \
+./src/position.o 
 
 CPP_DEPS += \
 ./src/brick.d \
-./src/small_prog.d 
+./src/game_impl.d \
+./src/position.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

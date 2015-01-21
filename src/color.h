@@ -8,9 +8,11 @@
 #ifndef COLOR_H_
 #define COLOR_H_
 
+namespace Connect_four {
 enum class Color {
 	BLUE, RED
 };
+}
 
 
 

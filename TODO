@@ -6,7 +6,11 @@ The following set of features:
 
 
 Test List:
-[] Determine color of brick: 
+[x] Determine color of brick: 
 [] Add brick to board
+[] add_brick_to_column_7
+[] add_brick_to_column_1
+[] add_brick_to_column_0
+[] add_brick_to_column_8
 [] Determine color of player in turn
 [] Determine winner of preset game
