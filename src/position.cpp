@@ -5,14 +5,14 @@
  *      Author: torp
  */
 
-#include "Postion.h"
+#include "position.h"
 using namespace Connect_four;
 
-int Position::get_column() {
+int Position::get_column() const{
 	return Position::m_column;
 }
 
-int Position::get_row() {
+int Position::get_row() const {
 	return Position::m_row;
 }
 

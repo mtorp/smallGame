@@ -17,4 +17,11 @@ Brick Game_impl::get_brick_at(const Position & p) {
 	return Game_impl::board[p.get_row()][p.get_column()];
 }
 
+Player Game_impl::get_player_in_turn() {
+
+}
+
+Player Game_impl::get_winner() {
+
+}
 

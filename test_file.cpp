@@ -7,11 +7,11 @@ class Connect_Four_Test : public ::testing::Test {
 protected:
 	Game * game;
 	Connect_Four_Test() {
-		 game = &Game_impl{};
+		 game = new Game_impl{};
 	}
 
 	virtual ~Connect_Four_Test() {
-		game->~Game();
+		delete game;
 	}
 
 	virtual void SetUp() {
@@ -35,12 +35,23 @@ TEST(Brick, brick_should_be_red) {
 	EXPECT_EQ(Color::RED, b.get_color());
 }
 
-TEST(Connect_four_test, add_brick_to_column_nr_7) {
+TEST_F(Connect_Four_Test, add_blue_brick_to_column_nr_7) {
 	int expected_column = 6;
 	int expected_row = 0;
 	game->insert_brick_at(6, Brick{Color::BLUE});
 
+	std::cout << "Insert breakpoint here\n";
 
 	EXPECT_EQ(Color::BLUE, game->get_brick_at(Position(expected_column, expected_row)).get_color());
 }
+
+TEST_F(Connect_Four_Test, add_red_brick_to_column_nr_7) {
+	int expected_column = 6;
+	int expected_row = 0;
+	game->insert_brick_at(6, Brick{Color::RED});
+
+
+	EXPECT_EQ(Color::RED, game->get_brick_at(Position(expected_column, expected_row)).get_color());
+}
+
 

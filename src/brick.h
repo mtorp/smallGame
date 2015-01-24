@@ -5,8 +5,8 @@
 namespace Connect_four {
 class Brick {
 public:
+	Brick ():m_color{Color::BLUE}{};
 	Brick (const Color& color):m_color{color}{};
-	~Brick() {}
 	Color get_color();
 private:
 	Color m_color;
