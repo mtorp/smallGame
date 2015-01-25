@@ -1,6 +1,4 @@
 /*
- * game_impl.cpp
- *
  *  Created on: Jan 21, 2015
  *      Author: torp
  */
@@ -8,8 +6,8 @@
 
 using namespace Connect_four;
 
-bool Game_impl::insert_brick_at(int row, const Brick & brick) {
-	Game_impl::board[row][0] = brick;
+bool Game_impl::insert_brick_at(int column, const Brick & brick) {
+	Game_impl::board[0][column] = brick;
 	return true;
 }
 

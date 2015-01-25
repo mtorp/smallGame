@@ -38,7 +38,7 @@ TEST(Brick, brick_should_be_red) {
 TEST_F(Connect_Four_Test, add_blue_brick_to_column_nr_7) {
 	int expected_column = 6;
 	int expected_row = 0;
-	game->insert_brick_at(6, Brick{Color::BLUE});
+	game->insert_brick_at(expected_column, Brick{Color::BLUE});
 
 	std::cout << "Insert breakpoint here\n";
 
@@ -48,7 +48,7 @@ TEST_F(Connect_Four_Test, add_blue_brick_to_column_nr_7) {
 TEST_F(Connect_Four_Test, add_red_brick_to_column_nr_7) {
 	int expected_column = 6;
 	int expected_row = 0;
-	game->insert_brick_at(6, Brick{Color::RED});
+	game->insert_brick_at(expected_column, Brick{Color::RED});
 
 
 	EXPECT_EQ(Color::RED, game->get_brick_at(Position(expected_column, expected_row)).get_color());
