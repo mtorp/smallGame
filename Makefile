@@ -35,6 +35,7 @@ game_impl.o: game_impl.h game.h
 	$(gg_compile) $(src)/game_impl.cpp -o $(build)/game_impl.o
 
 clean:
-	rm build/*.o
+	rm build/*.o	
+	rm test
 
 

@@ -17,7 +17,7 @@ public:
 
 	virtual ~Game_impl(){};
 
-	virtual Brick get_brick_at(const Position & p) override;
+	virtual Brick& get_brick_at(const Position & p) override;
 	virtual bool insert_brick_at(int column, const Brick & brick) override;
 	virtual Player get_winner() override;
 	virtual Player get_player_in_turn() override;

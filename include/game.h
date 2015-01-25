@@ -33,7 +33,7 @@ public:
 	 *  @pre p is a valid position
 	 *  @param p The position of the requested Brick
 	 */
-	virtual Brick get_brick_at(const Position & p) = 0;
+	virtual Brick& get_brick_at(const Position & p) = 0;
 
 	/** Inserts the brict ontop of the stack at the specified row 
 	 *  @pre row has to be a valid row

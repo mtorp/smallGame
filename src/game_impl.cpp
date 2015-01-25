@@ -11,7 +11,7 @@ bool Game_impl::insert_brick_at(int column, const Brick & brick) {
 	return true;
 }
 
-Brick Game_impl::get_brick_at(const Position & p) {
+Brick& Game_impl::get_brick_at(const Position & p) {
 	return Game_impl::board[p.get_row()][p.get_column()];
 }
 
