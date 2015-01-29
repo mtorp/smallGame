@@ -11,7 +11,7 @@
 namespace Connect_four {
 class Position {
 public:
-	Position(int column, int row):m_row{row},m_column{column}{};
+	Position(int row, int column):m_row{row},m_column{column}{};
 	int get_row() const;
 	int get_column() const;
 private:

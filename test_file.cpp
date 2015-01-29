@@ -40,7 +40,7 @@ TEST_F(Connect_Four_Test, add_blue_brick_to_column_nr_7) {
 	int expected_row = 0;
 	game->insert_brick_at(expected_column, Brick{Color::BLUE});
 
-	EXPECT_EQ(Color::BLUE, game->get_brick_at(Position(expected_column, expected_row)).get_color());
+	EXPECT_EQ(Color::BLUE, game->get_brick_at(Position(expected_row, expected_column)).get_color());
 }
 
 TEST_F(Connect_Four_Test, add_red_brick_to_column_nr_7) {
@@ -49,7 +49,7 @@ TEST_F(Connect_Four_Test, add_red_brick_to_column_nr_7) {
 	game->insert_brick_at(expected_column, Brick{Color::RED});
 
 
-	EXPECT_EQ(Color::RED, game->get_brick_at(Position(expected_column, expected_row)).get_color());
+	EXPECT_EQ(Color::RED, game->get_brick_at(Position(expected_row, expected_column)).get_color());
 }
 
 
