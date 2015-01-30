@@ -8,6 +8,7 @@
 using namespace Connect_four;
 
 bool Game_impl::insert_brick_at(int column, Brick * brick) {
+	if (column < 0 || column >= number_of_columns) throw std::out_of_range{"index out of bounds, has to be between: 1 and " + number_of_columns};
 	std::unique_ptr<Position> position {get_first_empty_square_in_column(column)};
 	if (position != nullptr) {
 		Game_impl::board[position->get_row()][position->get_column()] = brick;
@@ -25,7 +26,6 @@ Player Game_impl::get_player_in_turn() {
 }
 
 Player Game_impl::get_winner() {
-
 }
 
 std::unique_ptr<Position> Game_impl::get_first_empty_square_in_column(int column) {

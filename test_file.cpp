@@ -69,4 +69,15 @@ TEST_F(Connect_Four_Test, add_two_bricks_to_column_1) {
 	EXPECT_EQ(Color::RED, game->get_brick_at(Position(1, expected_column))->get_color());
 }
 
+TEST_F(Connect_Four_Test, add_brick_to_column_0_F) {
+	int expected_column = -1;
 
+	std::unique_ptr<Brick> brick {new Brick{Color::RED}};
+	ASSERT_THROW(game->insert_brick_at(expected_column, brick.get()), std::out_of_range);
+}
+TEST_F(Connect_Four_Test, add_brick_to_column_8_F) {
+	int expected_column = 7;
+
+	std::unique_ptr<Brick> brick {new Brick{Color::RED}};
+	ASSERT_THROW(game->insert_brick_at(expected_column, brick.get()), std::out_of_range);
+}

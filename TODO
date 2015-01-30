@@ -9,8 +9,8 @@ Test List:
 [x] Determine color of brick: 
 [x] add_blue_brick_to_column_7
 [x] add_red_brick_to_column_7
-[] add_two_bricks_to_column_1
-[] add_brick_to_column_0_F
-[] add_brick_to_column_8_F
+[x] add_two_bricks_to_column_1
+[x] add_brick_to_column_0_F
+[x] add_brick_to_column_8_F
 [] Determine color of player in turn
 [] Determine winner of preset game
