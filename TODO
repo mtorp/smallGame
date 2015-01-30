@@ -12,5 +12,7 @@ Test List:
 [x] add_two_bricks_to_column_1
 [x] add_brick_to_column_0_F
 [x] add_brick_to_column_8_F
-[] Determine color of player in turn
+[] player_in_turn_should_initially_be_blue
+[] player_in_turn_should_be_red_after_end_round
+[] player_in_turn_should_be_blue_after_2_end_rounds 
 [] Determine winner of preset game

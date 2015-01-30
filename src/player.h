@@ -14,9 +14,11 @@ class Player {
 	/** 
 	 *
 	 */
-	Player (const Color & c);
-	Color getColor();
+	Player (const Color & color):m_color{color}{};
+	Color get_color();
 
+	private:
+	Color m_color;
 };
 }
 #endif

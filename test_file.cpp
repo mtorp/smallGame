@@ -81,3 +81,29 @@ TEST_F(Connect_Four_Test, add_brick_to_column_8_F) {
 	std::unique_ptr<Brick> brick {new Brick{Color::RED}};
 	ASSERT_THROW(game->insert_brick_at(expected_column, brick.get()), std::out_of_range);
 }
+
+TEST_F(Connect_Four_Test, player_in_turn_should_initially_be_blue) {
+	ASSERT_EQ(game->get_player_in_turn()->get_color(), Color::BLUE);	
+}
+
+TEST_F(Connect_Four_Test, player_in_turn_should_be_red_after_end_round) {
+	std::unique_ptr<Brick> brick {new Brick{Color::BLUE}};
+
+	game->insert_brick_at(0, brick.get()); //Playing 1 turn to switch round
+	ASSERT_EQ(game->get_player_in_turn()->get_color(), Color::RED);	
+}
+
+
+TEST_F(Connect_Four_Test, player_in_turn_should_be_blue_after_2_end_rounds) {
+	std::unique_ptr<Brick> brick {new Brick{Color::BLUE}};
+
+	game->insert_brick_at(0, brick.get()); //Playing 1 turn to switch round
+	game->insert_brick_at(0, brick.get()); //Playing 1 turn to switch round
+	ASSERT_EQ(game->get_player_in_turn()->get_color(), Color::BLUE);	
+}
+/**
+ *
+[] player_in_turn_should_initially_be_blue
+[] player_in_turn_should_be_red_after_end_round
+[] player_in_turn_should_be_blue_after_2_end_rounds
+ */
