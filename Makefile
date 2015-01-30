@@ -16,22 +16,22 @@ test: $(game_objects) $(test_objects)
 	echo "invoking linker"	
 	$(gg) $(build_test_objects) $(build_game_objects) -o test $(libraries)
 
-test_main.o: gtest/gtest.h
+test_main.o: gtest/gtest.h test_main.cpp
 	$(gg_compile) test_main.cpp -o $(build)/test_main.o
 
-test_file.o: gtest/gtest.h game_impl.h 
+test_file.o: gtest/gtest.h game_impl.h test_file.cpp 
 	$(gg_compile) test_file.cpp -o $(build)/test_file.o
 
-position.o: position.h
+position.o: position.h position.cpp
 	$(gg_compile) $(src)/position.cpp -o $(build)/position.o	
 
-player.o: player.h color.h
+player.o: player.h color.h player.cpp
 	$(gg_compile) $(src)/player.cpp -o $(build)/player.o
 
-brick.o: color.h brick.h
+brick.o: color.h brick.h brick.cpp
 	$(gg_compile) $(src)/brick.cpp -o $(build)/brick.o
 
-game_impl.o: game_impl.h game.h 
+game_impl.o: game_impl.h game.h game_impl.cpp 
 	$(gg_compile) $(src)/game_impl.cpp -o $(build)/game_impl.o
 
 clean:

@@ -7,10 +7,10 @@ The following set of features:
 
 Test List:
 [x] Determine color of brick: 
-[] Add brick to board
-[] add_brick_to_column_7
-[] add_brick_to_column_1
-[] add_brick_to_column_0
-[] add_brick_to_column_8
+[x] add_blue_brick_to_column_7
+[x] add_red_brick_to_column_7
+[] add_two_bricks_to_column_1
+[] add_brick_to_column_0_F
+[] add_brick_to_column_8_F
 [] Determine color of player in turn
 [] Determine winner of preset game
