@@ -8,6 +8,7 @@
 #include "game.h"
 #include <vector>
 #include <memory>
+#include "winner_strategy.h"
 
 #ifndef SRC_GAME_IMPL_H_
 #define SRC_GAME_IMPL_H_
@@ -15,8 +16,10 @@
 namespace Connect_four {
 class Game_impl : public Game {
 public:
+	Game_impl(Winner_strategy * winner_strategy):m_winner_strategy{winner_strategy}{};
 
 	virtual ~Game_impl(){};
+
 
 	virtual Brick* get_brick_at(const Position & p) override;
 	virtual bool insert_brick_at(int column, Brick * brick) override;
@@ -34,6 +37,7 @@ private:
 	std::vector<Player> players{Player{Color::BLUE}, Player{Color::RED}};
 	
 	Player * player_in_turn = &players.at(0);
+	Winner_strategy * m_winner_strategy;
 
 	std::unique_ptr<Position> get_first_empty_square_in_column(int column);
 

@@ -19,7 +19,7 @@ bool Game_impl::insert_brick_at(int column, Brick * brick) {
 }
 
 Brick* Game_impl::get_brick_at(const Position & p) {
-	return Game_impl::board[p.get_row()][p.get_column()];
+	return Game_impl::board.at(p.get_row()).at(p.get_column());
 }
 
 Player* Game_impl::get_player_in_turn() {
@@ -27,6 +27,7 @@ Player* Game_impl::get_player_in_turn() {
 }
 
 Player* Game_impl::get_winner() {
+	return Game_impl::m_winner_strategy->get_winner(this);
 }
 
 std::unique_ptr<Position> Game_impl::get_first_empty_square_in_column(int column) {

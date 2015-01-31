@@ -1,13 +1,16 @@
 #include "gtest/gtest.h"
 #include "game_impl.h"
+#include "naive_winner_strategy.h"
+#include "memory.h"
 
 using namespace Connect_four;
 
 class Connect_Four_Test : public ::testing::Test {
 protected:
 	Game * game;
+	std::unique_ptr<Winner_strategy> winner_strategy {new Naive_winner_strategy}; 
 	Connect_Four_Test() {
-		 game = new Game_impl{};
+		game = new Game_impl{winner_strategy.get()};
 	}
 
 	virtual ~Connect_Four_Test() {
@@ -83,14 +86,14 @@ TEST_F(Connect_Four_Test, add_brick_to_column_8_F) {
 }
 
 TEST_F(Connect_Four_Test, player_in_turn_should_initially_be_blue) {
-	ASSERT_EQ(game->get_player_in_turn()->get_color(), Color::BLUE);	
+	ASSERT_EQ(Color::BLUE, game->get_player_in_turn()->get_color());	
 }
 
 TEST_F(Connect_Four_Test, player_in_turn_should_be_red_after_end_round) {
 	std::unique_ptr<Brick> brick {new Brick{Color::BLUE}};
 
 	game->insert_brick_at(0, brick.get()); //Playing 1 turn to switch round
-	ASSERT_EQ(game->get_player_in_turn()->get_color(), Color::RED);	
+	ASSERT_EQ(Color::RED, game->get_player_in_turn()->get_color()); 
 }
 
 
@@ -99,11 +102,47 @@ TEST_F(Connect_Four_Test, player_in_turn_should_be_blue_after_2_end_rounds) {
 
 	game->insert_brick_at(0, brick.get()); //Playing 1 turn to switch round
 	game->insert_brick_at(0, brick.get()); //Playing 1 turn to switch round
-	ASSERT_EQ(game->get_player_in_turn()->get_color(), Color::BLUE);	
+	ASSERT_EQ(Color::BLUE, game->get_player_in_turn()->get_color());	
+}
+
+TEST_F(Connect_Four_Test, add_7_bricks_to_column_0_F) {
+	std::unique_ptr<Brick> brick {new Brick{Color::BLUE}};
+	//Insert 7 bricks to emulate an overflow of bricks
+	game->insert_brick_at(0, brick.get());
+	game->insert_brick_at(0, brick.get()); 
+	game->insert_brick_at(0, brick.get()); 
+	game->insert_brick_at(0, brick.get()); 
+	game->insert_brick_at(0, brick.get()); 
+	game->insert_brick_at(0, brick.get()); 
+	ASSERT_THROW(game->insert_brick_at(0, brick.get()), std::out_of_range);	
+}
+
+TEST_F(Connect_Four_Test, there_should_be_no_initial_winner) {
+	ASSERT_EQ(nullptr, game->get_winner());
+}
+
+/**
+ * Blue has bricks at (0,0) (0,1) (0,2) and (0,3)
+ */
+TEST_F(Connect_Four_Test, blue_should_be_winner_1) {
+	std::unique_ptr<Brick> blue_brick {new Brick{Color::BLUE}};
+	std::unique_ptr<Brick> red_brick {new Brick{Color::RED}};
+
+	//all the red bricks are placed ontop of the blue bricks, to account for red being player_in_turn when round%2 = 1
+	//The winner should still be blue
+	game->insert_brick_at(0, blue_brick.get()); 
+	game->insert_brick_at(0, red_brick.get()); 
+	game->insert_brick_at(1, blue_brick.get()); 
+	game->insert_brick_at(1, red_brick.get()); 
+	game->insert_brick_at(2, blue_brick.get()); 
+	game->insert_brick_at(2, red_brick.get()); 
+	game->insert_brick_at(3, blue_brick.get());
+
+	ASSERT_NE(nullptr, game->get_winner());
+	ASSERT_EQ(Color::BLUE, game->get_winner()->get_color());	
+	
 }
 /**
- *
-[] player_in_turn_should_initially_be_blue
-[] player_in_turn_should_be_red_after_end_round
-[] player_in_turn_should_be_blue_after_2_end_rounds
+ [] there_should_be_no_initial_winner
+[] blue_should_be_winner_with_bricks_at_[0,0]-[0,1]-[0,2]-[0,3];
  */

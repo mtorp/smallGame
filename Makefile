@@ -1,4 +1,4 @@
-game_objects  = brick.o game_impl.o player.o position.o
+game_objects  = brick.o game_impl.o player.o position.o naive_winner_strategy.o
 build_game_objects = $(addprefix build/, $(game_objects))
 gg = g++ -Wall -g -Iinclude/ -Isrc/ -std=c++11 
 gg_compile = $(gg) -c
@@ -34,6 +34,8 @@ brick.o: color.h brick.h brick.cpp
 game_impl.o: game_impl.h game.h game_impl.cpp 
 	$(gg_compile) $(src)/game_impl.cpp -o $(build)/game_impl.o
 
+naive_winner_strategy.o: winner_strategy.h naive_winner_strategy.h naive_winner_strategy.cpp
+	$(gg_compile) $(src)/naive_winner_strategy.cpp -o $(build)/naive_winner_strategy.o
 clean:
 	rm build/*.o	
 	rm test
