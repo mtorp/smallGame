@@ -10,7 +10,7 @@
 
 namespace Connect_four {
 enum class Color {
-	BLUE, RED
+	BLUE, RED, NotAColor
 };
 }
 

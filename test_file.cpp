@@ -8,7 +8,7 @@ using namespace Connect_four;
 class Connect_Four_Test : public ::testing::Test {
 protected:
 	Game * game;
-	std::unique_ptr<Winner_strategy> winner_strategy {new Naive_winner_strategy}; 
+	std::unique_ptr<Winner_strategy> winner_strategy {new Naive_winner_strategy};
 	Connect_Four_Test() {
 		game = new Game_impl{winner_strategy.get()};
 	}

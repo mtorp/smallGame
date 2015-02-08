@@ -49,3 +49,12 @@ void Game_impl::end_round() {
 	else
 		player_in_turn = &players.at(0);
 }
+
+Player* Game_impl::get_player_with_color(Color color) {
+	for (std::vector<Player>::size_type i = 0; i<Game_impl::players.size(); ++i) {
+		if (Game_impl::players.at(i).get_color() == color)
+			return &Game_impl::players.at(i);
+	}
+	return nullptr;
+}
+

@@ -50,6 +50,8 @@ public:
 
 
 	virtual Player* get_player_in_turn() = 0;
+	virtual	Player * get_player_with_color(Color color) = 0;
+
 };
 }
 #endif
