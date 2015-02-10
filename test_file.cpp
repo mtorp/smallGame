@@ -142,7 +142,26 @@ TEST_F(Connect_Four_Test, blue_should_be_winner_1) {
 	ASSERT_EQ(Color::BLUE, game->get_winner()->get_color());	
 	
 }
+
 /**
- [] there_should_be_no_initial_winner
-[] blue_should_be_winner_with_bricks_at_[0,0]-[0,1]-[0,2]-[0,3];
+ * Red has bricks at (2,0) (2,1) (2,2) (2,3) 
  */
+TEST_F(Connect_Four_Test, red_should_be_winner_1) {
+	std::unique_ptr<Brick> blue_brick {new Brick{Color::BLUE}};
+	std::unique_ptr<Brick> red_brick {new Brick{Color::RED}};
+
+	//all the red bricks are placed ontop of the blue bricks, to account for red being player_in_turn when round%2 = 1
+	//The winner should still be blue
+	game->insert_brick_at(2, red_brick.get()); 
+	game->insert_brick_at(1, blue_brick.get()); 
+	game->insert_brick_at(2, red_brick.get()); 
+	game->insert_brick_at(1, blue_brick.get()); 
+	game->insert_brick_at(2, red_brick.get()); 
+	game->insert_brick_at(1, blue_brick.get()); 
+	game->insert_brick_at(2, red_brick.get());
+
+	ASSERT_NE(nullptr, game->get_winner());
+	ASSERT_EQ(Color::RED, game->get_winner()->get_color());	
+	
+}
+

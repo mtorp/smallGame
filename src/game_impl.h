@@ -18,9 +18,7 @@ namespace Connect_four {
 class Game_impl : public Game {
 public:
 	Game_impl(Winner_strategy * winner_strategy):m_winner_strategy{winner_strategy}{
-		for (std::vector<Brick*> brick_vector : board) {
-			std::fill(brick_vector.begin(), brick_vector.end(), nullptr);
-		}
+
 	};
 
 	virtual ~Game_impl(){};
@@ -33,7 +31,7 @@ private:
 	/** @brief This multidimensional vector represents the 6x7 board of which the game is played
 	 *
 	 */
-	std::vector<std::vector<Brick *> > board {number_of_rows, std::vector<Brick *>{number_of_columns}};
+	std::vector<std::vector<Brick *> > board {number_of_rows, std::vector<Brick *>{number_of_columns, nullptr}};
 
 	/** @Breif structure that contains the players
 	 *

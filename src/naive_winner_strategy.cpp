@@ -1,5 +1,6 @@
 #include "naive_winner_strategy.h"
 #include "game.h"
+#include <iostream>
 namespace Connect_four {
 
 	constexpr int directions_size = 4;
@@ -34,16 +35,19 @@ Player* Naive_winner_strategy::find_winner_in_position(int row, int column) {
 
 Color Naive_winner_strategy::get_color_of_winner(int row, int column,x_y current_direction) {
 	Position position (row, column);
-	if (contains_brick(position)) return Color::NotAColor;
+	if (!contains_brick(position)) return Color::NotAColor;
 
-	int number_of_bricks_in_direction = 0;
+	int number_of_bricks_in_direction = 1;
 	int temp_row = row, temp_column = column;
 	Color initial_color {m_game->get_brick_at(position)->get_color()};	
 
 	temp_row += current_direction.m_x;
 	temp_column += current_direction.m_y;
 
-	while (contains_brick(Position(temp_row, temp_column)) && m_game->get_brick_at(Position(temp_row, temp_column))->get_color() == initial_color) {
+	while (!out_of_bounds(Position(temp_row, temp_column)) &&
+		contains_brick(Position(temp_row, temp_column)) &&
+	       	m_game->get_brick_at(Position(temp_row, temp_column))->get_color() == initial_color) {
+
 		number_of_bricks_in_direction += 1;
 		temp_row += current_direction.m_x;
 		temp_column += current_direction.m_y;
@@ -57,6 +61,15 @@ Color Naive_winner_strategy::get_color_of_winner(int row, int column,x_y current
 bool Naive_winner_strategy::contains_brick(Position position) {
 	if (m_game->get_brick_at(position) != nullptr)
 		return true;
+	return false;
+}
+
+bool Naive_winner_strategy::out_of_bounds(Position position) {
+	int row = position.get_row();
+	int column = position.get_column();
+
+	if (row < 0 || row >= number_of_rows) return true;
+	if (column < 0 || column >= number_of_columns) return true;
 	return false;
 }
 }

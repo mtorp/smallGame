@@ -17,6 +17,7 @@ namespace Connect_four {
 		 *
 		 */
 		bool contains_brick(Position position);
+		bool out_of_bounds(Position position);
 		Game * m_game; 
 	};
 }
