@@ -16,5 +16,5 @@ Test List:
 [x] player_in_turn_should_initially_be_blue
 [x] player_in_turn_should_be_red_after_end_round
 [x] player_in_turn_should_be_blue_after_2_end_rounds 
-[] there_should_be_no_initial_winner
-[] blue_should_be_winner_with_bricks_at_[0,0]-[0,1]-[0,2]-[0,3];
+[x] there_should_be_no_initial_winner
+[x] blue_should_be_winner_with_bricks_at_[0,0]-[0,1]-[0,2]-[0,3];
