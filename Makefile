@@ -16,31 +16,30 @@ test: $(game_objects) $(test_objects)
 	echo "invoking linker"	
 	$(gg) $(build_test_objects) $(build_game_objects) -o test $(libraries)
 
-test_main.o: gtest/gtest.h test_main.cpp build_dir
+console_ui: $(game_objects) console_ui.cpp
+	$(gg) $(build_game_objects) $(src)/console_ui.cpp -o console_game
+
+test_main.o: gtest/gtest.h test_main.cpp
 	$(gg_compile) test_main.cpp -o $(build)/test_main.o
 
-test_file.o: gtest/gtest.h game_impl.h test_file.cpp build_dir
+test_file.o: gtest/gtest.h game_impl.h test_file.cpp
 	$(gg_compile) test_file.cpp -o $(build)/test_file.o
 
-position.o: position.h position.cpp build_dir
+position.o: position.h position.cpp
 	$(gg_compile) $(src)/position.cpp -o $(build)/position.o	
 
-player.o: player.h color.h player.cpp build_dir
+player.o: player.h color.h player.cpp
 	$(gg_compile) $(src)/player.cpp -o $(build)/player.o
 
-brick.o: color.h brick.h brick.cpp build_dir
+brick.o: color.h brick.h brick.cpp 
 	$(gg_compile) $(src)/brick.cpp -o $(build)/brick.o
 
-game_impl.o: game_impl.h game.h game_impl.cpp build_dir 
+game_impl.o: game_impl.h game.h game_impl.cpp 
 	$(gg_compile) $(src)/game_impl.cpp -o $(build)/game_impl.o
-
-build_dir:
-	mkdir build
 
 naive_winner_strategy.o: winner_strategy.h naive_winner_strategy.h naive_winner_strategy.cpp
 	$(gg_compile) $(src)/naive_winner_strategy.cpp -o $(build)/naive_winner_strategy.o
-clean:
-	rm build/*.o	
-	rm test
-
-
+clean:	
+	rm build/*.o 
+	rm test 
+	rm console_ui
