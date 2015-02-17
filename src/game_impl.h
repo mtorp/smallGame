@@ -24,7 +24,7 @@ public:
 	virtual ~Game_impl(){};
 	virtual	Player * get_player_with_color(Color color) override;
 	virtual Brick* get_brick_at(const Position & p) override;
-	virtual bool insert_brick_at(int column, Brick * brick) override;
+	virtual void insert_brick_at(int column, Brick * brick) override;
 	virtual Player* get_winner() override;
 	virtual Player* get_player_in_turn() override;
 private:

@@ -41,7 +41,7 @@ public:
 	 *  @param brick the brick to be inserted
 	 *  @return true if brick was inserted successfully
 	 */
-	virtual	bool insert_brick_at(int column, Brick * brick) = 0;
+	virtual	void insert_brick_at(int column, Brick * brick) = 0;
 
 	/** 
 	 * @return the winner of the game, null if no winner is found.

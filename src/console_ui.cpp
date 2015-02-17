@@ -39,6 +39,9 @@ int main () {
 		catch(input_error& e) {
 			std::cout << e.m_msg << '\n';
 		}
+		catch(std::out_of_range e) {
+			std::cout << e.what() <<'\n';
+		}
 		winner = {game->get_winner()};
 	}
 	write_winner_message(winner);
